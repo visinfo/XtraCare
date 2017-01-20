@@ -1,4 +1,4 @@
-package hello;
+package com.xtracare.services;
 
 public class Greeting {
 
