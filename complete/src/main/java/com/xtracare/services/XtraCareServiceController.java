@@ -124,7 +124,22 @@ public class XtraCareServiceController {
 				EmailSend sendMail = new EmailSend(serviceBookingResp.getEmailId(),"<strong>Service Booking</strong></br> <table><thead>Thanks For Choosing Xtra Care</thead><tbody><tr><td>Your booking id is:-<strong>"+serviceBookingResp.getServiceBookingId()+"</strong> </br>Please use this to reference any booking realted queries </td></tr></tbody></table>");
 				sendMail.setDaemon(true);
 				sendMail.start();
-				
+				EmailSend sendMailToSystem = new EmailSend(Utility.getConfigValue("sysEmail"),"<strong>Service Booking Request With Below Details:-</strong></br>"
+						+ " <table><thead>User Email:-"+serviceBookingResp.getEmailId()+"</thead><tbody><tr><td> Booking Id :-<strong>"
+						+serviceBookingResp.getServiceBookingId()
+						+ "</strong></td></tr><tr><td>Mobile Number is:-<strong>"
+						+serviceBookingResp.getMobileNbr()
+						+ "</strong></td></tr><td> Car Model:-<strong>"
+						+serviceBookingResp.getCarModel()
+						+ "</strong></td></tr><tr><td> Pick and Drop Required:-<strong>"
+						+serviceBookingResp.getIsPickNDrop()
+						+ "</strong></td></tr><tr><td> Service Type:-<strong>"
+						+serviceBookingResp.getServiceType()
+						+"</strong></td></tr><tr><td>Service Description:-<strong>"
+						+serviceBookingResp.getServiceDesc()
+						+ "</strong></td></tr></tbody></table>");
+				sendMailToSystem.setDaemon(true);
+				sendMailToSystem.start();
 			 }else{
 				responseData.addProperty("responseCode", "500");
 				responseData.addProperty("responseMessage",serviceBookingResp.getErrorMsg());

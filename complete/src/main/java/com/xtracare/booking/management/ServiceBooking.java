@@ -4,7 +4,7 @@ public class ServiceBooking {
 
 	private long userId;
 	
-	private long mobileNumber;
+	private long mobileNbr;
 	private String  carModel;
 	private String isPickNDrop;
 	private String serviceDate;
@@ -28,12 +28,14 @@ public class ServiceBooking {
 		this.userId = userId;
 	}
 
-	public long getMobileNumber() {
-		return mobileNumber;
+	
+
+	public long getMobileNbr() {
+		return mobileNbr;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setMobileNbr(long mobileNbr) {
+		this.mobileNbr = mobileNbr;
 	}
 
 	public String getCarModel() {

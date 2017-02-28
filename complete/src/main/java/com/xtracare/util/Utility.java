@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ThreadLocalRandom;
+
+import org.springframework.boot.SpringApplication;
 
 import com.xtracare.db.DBConnect;
 
@@ -53,5 +58,13 @@ public class Utility {
 
 		return randomNum+""+userId;
 	}
-	
+	public static void main(String[] args) {
+		ConcurrentMap<String, String>  map = new ConcurrentHashMap<String,String>();
+		map.put("A", "1");
+		for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();) {
+			String type = (String) iterator.next();
+			System.out.println(type);
+		}
+		
+ 	}
 }
